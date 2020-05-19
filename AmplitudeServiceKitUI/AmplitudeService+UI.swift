@@ -13,7 +13,8 @@ import AmplitudeServiceKit
 extension AmplitudeService: ServiceUI {
 
     public static func setupViewController() -> (UIViewController & ServiceSetupNotifying & CompletionNotifying)? {
-        return ServiceViewController(rootViewController: AmplitudeServiceTableViewController(service: AmplitudeService(), for: .create))
+        let service = AmplitudeService(rawState: [:]) ?? AmplitudeService()
+        return ServiceViewController(rootViewController: AmplitudeServiceTableViewController(service: service, for: .create))
     }
 
     public func settingsViewController() -> (UIViewController & ServiceSettingsNotifying & CompletionNotifying) {
