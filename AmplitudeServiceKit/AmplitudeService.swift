@@ -13,7 +13,7 @@ public final class AmplitudeService: Service {
 
     public static let serviceIdentifier = "AmplitudeService"
 
-    public static let localizedTitle = LocalizedString("Amplitude", comment: "The title of the Amplitude service")
+    public static let localizedTitle = LocalizedString("振幅", comment: "The title of the Amplitude service")
 
     public weak var serviceDelegate: ServiceDelegate?
 

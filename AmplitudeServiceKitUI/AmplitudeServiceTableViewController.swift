@@ -132,17 +132,17 @@ final class AmplitudeServiceTableViewController: UITableViewController, UITextFi
         switch Section(rawValue: indexPath.section)! {
         case .credentials:
             let cell = tableView.dequeueReusableCell(withIdentifier: AuthenticationTableViewCell.className, for: indexPath) as! AuthenticationTableViewCell
-            cell.titleLabel.text = LocalizedString("API Key", comment: "The title of the Amplitude API key")
+            cell.titleLabel.text = LocalizedString("API键", comment: "The title of the Amplitude API key")
             cell.textField.text = service.apiKey
             cell.textField.enablesReturnKeyAutomatically = true
             cell.textField.keyboardType = .asciiCapable
-            cell.textField.placeholder = LocalizedString("Required", comment: "The default placeholder for required text")
+            cell.textField.placeholder = LocalizedString("必需的", comment: "The default placeholder for required text")
             cell.textField.returnKeyType = .done
             cell.textField.delegate = self
             return cell
         case .deleteService:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextButtonTableViewCell.className, for: indexPath) as! TextButtonTableViewCell
-            cell.textLabel?.text = LocalizedString("Delete Service", comment: "Button title to delete a service")
+            cell.textLabel?.text = LocalizedString("删除服务", comment: "Button title to delete a service")
             cell.textLabel?.textAlignment = .center
             cell.tintColor = .delete
             return cell
@@ -207,19 +207,19 @@ fileprivate extension UIAlertController {
     convenience init(serviceDeletionHandler handler: @escaping () -> Void) {
         self.init(
             title: nil,
-            message: LocalizedString("Are you sure you want to delete this service?", comment: "Confirmation message for deleting a service"),
+            message: LocalizedString("您确定要删除此服务吗？", comment: "Confirmation message for deleting a service"),
             preferredStyle: .actionSheet
         )
         
         addAction(UIAlertAction(
-            title: LocalizedString("Delete Service", comment: "Button title to delete a service"),
+            title: LocalizedString("删除服务", comment: "Button title to delete a service"),
             style: .destructive,
             handler: { _ in
                 handler()
         }
         ))
         
-        let cancel = LocalizedString("Cancel", comment: "The title of the cancel action in an action sheet")
+        let cancel = LocalizedString("取消", comment: "The title of the cancel action in an action sheet")
         addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
     }
     
